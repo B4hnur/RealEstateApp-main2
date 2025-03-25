@@ -63,3 +63,13 @@ C:\Users\USER\Desktop\RealEstateApp-main\RealEstateApp-main\RealEstateApp\obj\De
 C:\Users\USER\Desktop\RealEstateApp-main\RealEstateApp-main\RealEstateApp\obj\Debug\RealEstateApp.pdb
 C:\Users\USER\Desktop\RealEstateApp-main\RealEstateApp-main\RealEstateApp\obj\Debug\RealEstateApp.csproj.SuggestedBindingRedirects.cache
 C:\Users\USER\Desktop\RealEstateApp-main\RealEstateApp-main\RealEstateApp\obj\Debug\RealEstateApp.exe.config
+C:\Users\USER\Desktop\RealEstateApp-main\RealEstateApp-main2\RealEstateApp\obj\Debug\RealEstateApp.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\RealEstateApp-main\RealEstateApp-main2\RealEstateApp\obj\Debug\RealEstateApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\USER\Desktop\RealEstateApp-main\RealEstateApp-main2\RealEstateApp\obj\Debug\RealEstateApp.exe.config
+C:\Users\USER\Desktop\RealEstateApp-main\RealEstateApp-main2\RealEstateApp\obj\Debug\RealEstateApp.DetailsForm.resources
+C:\Users\USER\Desktop\RealEstateApp-main\RealEstateApp-main2\RealEstateApp\obj\Debug\RealEstateApp.MainForm.resources
+C:\Users\USER\Desktop\RealEstateApp-main\RealEstateApp-main2\RealEstateApp\obj\Debug\RealEstateApp.Properties.Resources.resources
+C:\Users\USER\Desktop\RealEstateApp-main\RealEstateApp-main2\RealEstateApp\obj\Debug\RealEstateApp.csproj.GenerateResource.cache
+C:\Users\USER\Desktop\RealEstateApp-main\RealEstateApp-main2\RealEstateApp\obj\Debug\RealEstateApp.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\RealEstateApp-main\RealEstateApp-main2\RealEstateApp\obj\Debug\RealEstateApp.exe
+C:\Users\USER\Desktop\RealEstateApp-main\RealEstateApp-main2\RealEstateApp\obj\Debug\RealEstateApp.pdb
