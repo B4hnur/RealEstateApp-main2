@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\RealEstateApp",
+    "\\RealEstateApp\\Data",
+    "\\RealEstateApp\\Helpers",
+    "\\RealEstateApp\\Models",
+    "\\RealEstateApp\\Services",
+    "\\RealEstateApp\\Views",
+    "\\RealEstateApp\\Views\\Shared"
+  ],
+  "SelectedNode": "\\RealEstateApp.sln",
+  "PreviewInSolutionExplorer": false
+}

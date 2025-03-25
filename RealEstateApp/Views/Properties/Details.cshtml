@@ -1,0 +1,183 @@
+@model RealEstateApp.Models.Property
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="property-details">
+            <div class="property-gallery">
+                <div class="main-image">
+                    @if (Model.Images.Any())
+                    {
+                        <img src="@(Model.Images.FirstOrDefault(i => i.IsPrimary)?.FilePath ?? Model.Images.First().FilePath)"
+                             alt="@Model.Title" id="main-property-image" />
+                    }
+                    else
+                    {
+                        <img src="https://via.placeholder.com/800x500?text=No+Image" alt="No Image" />
+                    }
+                </div>
+
+                @if (Model.Images.Count() > 1)
+                {
+                    <div class="thumbnails">
+                        @foreach (var image in Model.Images)
+                        {
+                            <div class="thumbnail @(image.IsPrimary ? "active" : "")"
+                                 data-image="@image.FilePath">
+                                <img src="@image.FilePath" alt="Thumbnail" />
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+
+            <h1 class="mt-4">@Model.Title</h1>
+            <h3 class="property-price">@Model.Price.ToString("C0")</h3>
+
+            <div class="property-address mb-4">
+                <i class="bi bi-geo-alt"></i> @Model.Address
+            </div>
+
+            <div class="row mb-4">
+                @if (Model.Bedrooms.HasValue)
+                {
+                    <div class="col-4">
+                        <div class="card text-center p-3">
+                            <i class="bi bi-door-closed mb-2" style="font-size: 1.5rem;"></i>
+                            <h5>@Model.Bedrooms</h5>
+                            <div class="text-muted">Bedrooms</div>
+                        </div>
+                    </div>
+                }
+
+                @if (Model.Bathrooms.HasValue)
+                {
+                    <div class="col-4">
+                        <div class="card text-center p-3">
+                            <i class="bi bi-droplet mb-2" style="font-size: 1.5rem;"></i>
+                            <h5>@Model.Bathrooms</h5>
+                            <div class="text-muted">Bathrooms</div>
+                        </div>
+                    </div>
+                }
+
+                @if (Model.Area.HasValue)
+                {
+                    <div class="col-4">
+                        <div class="card text-center p-3">
+                            <i class="bi bi-bounding-box mb-2" style="font-size: 1.5rem;"></i>
+                            <h5>@Model.Area</h5>
+                            <div class="text-muted">sq ft</div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="mt-4">
+                <h4>Description</h4>
+                <p>@Html.Raw(Model.Description?.Replace("\n", "<br />") ?? "No description available.")</p>
+            </div>
+
+            <hr class="my-4" />
+
+            <div class="row property-details-table">
+                <div class="col-md-6">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Property Type</th>
+                                <td>@Model.PropertyType</td>
+                            </tr>
+                            @if (Model.YearBuilt.HasValue)
+                            {
+                                <tr>
+                                    <th>Year Built</th>
+                                    <td>@Model.YearBuilt</td>
+                                </tr>
+                            }
+                            <tr>
+                                <th>Posted On</th>
+                                <td>@Model.CreatedAt.ToString("MMMM dd, yyyy")</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+                    <i class="bi bi-pencil"></i> Edit
+                </a>
+                <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <!-- Contact form or additional info could go here -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Contact Agent</h5>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group mb-3">
+                        <label>Name</label>
+                        <input type="text" class="form-control" placeholder="Your Name">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Email</label>
+                        <input type="email" class="form-control" placeholder="Your Email">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Phone</label>
+                        <input type="tel" class="form-control" placeholder="Your Phone">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Message</label>
+                        <textarea class="form-control" rows="4" placeholder="I'm interested in this property..."></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary w-100">
+                        <i class="bi bi-envelope"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Property Location</h5>
+            </div>
+            <div class="card-body p-0">
+                <!-- Placeholder for a map -->
+                <div style="background-color: #eee; height: 300px; display: flex; align-items: center; justify-content: center;">
+                    <div class="text-center">
+                        <i class="bi bi-map" style="font-size: 3rem;"></i>
+                        <p class="mt-2">Map view would appear here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('main-property-image');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    // Update main image
+                    mainImage.src = this.getAttribute('data-image');
+
+                    // Update active state
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });</script>
+}

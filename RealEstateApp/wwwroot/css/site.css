@@ -1,0 +1,304 @@
+﻿/* Main styles for Real Estate App */
+
+/* Base styles */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --dark-color: #34495e;
+    --light-color: #ecf0f1;
+    --danger-color: #e74c3c;
+    --warning-color: #f39c12;
+    --border-radius: 4px;
+}
+
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Header & Footer */
+.header {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 60px;
+    background-color: var(--dark-color);
+    color: white;
+}
+
+/* Property Cards */
+.property-card {
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    background-color: white;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+    .property-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .property-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+.property-card-content {
+    padding: 15px;
+}
+
+.property-price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.property-address {
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.property-features {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.property-feature {
+    display: flex;
+    align-items: center;
+    color: #555;
+}
+
+    .property-feature i {
+        margin-right: 5px;
+        color: var(--primary-color);
+    }
+
+/* Property Details */
+.property-details {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.property-gallery {
+    margin-bottom: 30px;
+}
+
+.main-image {
+    margin-bottom: 10px;
+}
+
+    .main-image img {
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+        border-radius: var(--border-radius);
+    }
+
+.thumbnails {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 60px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    transition: border-color 0.2s ease;
+}
+
+    .thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: calc(var(--border-radius) - 2px);
+    }
+
+    .thumbnail.active {
+        border-color: var(--primary-color);
+    }
+
+/* Forms */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-success {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.filter-form {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+    .filter-form .form-group {
+        margin-bottom: 15px;
+    }
+
+.range-group {
+    display: flex;
+    gap: 10px;
+}
+
+    .range-group .form-control {
+        flex: 1;
+    }
+
+/* Image Upload */
+.upload-area {
+    border: 2px dashed #ccc;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+    .upload-area:hover {
+        border-color: var(--primary-color);
+    }
+
+    .upload-area i {
+        font-size: 3rem;
+        color: #ccc;
+        margin-bottom: 10px;
+    }
+
+.image-preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.image-preview-item {
+    width: 150px;
+    position: relative;
+}
+
+    .image-preview-item img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+        border-radius: var(--border-radius);
+    }
+
+.image-info {
+    font-size: 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 5px;
+}
+
+.image-action-btns {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.property-image-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.property-image-item {
+    width: 200px;
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    .property-image-item img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+.image-actions {
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+    .image-actions .btn {
+        padding: 2px 5px;
+        font-size: 0.8rem;
+    }
+
+.primary-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+}
+
+/* Utils */
+.text-muted {
+    color: #6c757d !important;
+}
+
+.text-danger {
+    color: var(--danger-color) !important;
+}
+
+.text-success {
+    color: var(--secondary-color) !important;
+}
